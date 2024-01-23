@@ -12,7 +12,7 @@ export default function HomePage() {
 
     const submit=()=>{
         let newData=[...data];
-        if(input!==""){
+        if(input.trim()!==""){
             if(!data.includes(input)){
                 newData.push(input)
             }
@@ -25,6 +25,7 @@ export default function HomePage() {
             alert("Nhập giá trị vào input")
         };
         setData(newData);
+        setInput("")
     }
 
     const renderContent=()=>{
@@ -52,7 +53,7 @@ export default function HomePage() {
   return (
     <div>
         <h1>TaskList</h1>
-       <input onChange={changeInput} type="text" />
+       <input onChange={changeInput} type="text" value={input}/>
         <button onClick={()=>{submit()}}>Submit</button>
         {renderContent()}
     </div>
